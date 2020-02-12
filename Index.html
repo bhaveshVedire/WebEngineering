@@ -7,6 +7,9 @@
     <title>Document</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>   
+
+    <script src="https://www.gstatic.com/firebasejs/7.8.0/firebase.js"></script>
+
 </head>
 <body>
     <h1 style="text-align:center;">Weather Forecasting</h1>
@@ -22,18 +25,35 @@
                 <p style="text-align: center;">
                     <button type="button" onclick="getWeather()"  class="btn btn-info">Get Weather</button>
                     <button type="button" onclick="getChart()"  class="btn btn-info">Get One Week Forecast</button>
+                    <button type="button" onclick="getFromDB()"  class="btn btn-info">Display Stored Forecasts</button>
                 </p>
             </div>
             <div class="col-sm-12">
                 <p id="weatherDisplay" style="text-align: center;font-size: 75px;"></p>
             </div>
           </div>
-          <div class="row">
-              <div class="col-sm-12">
-                <canvas id="myChart"></canvas>
+          
 
-              </div>
+          <div class="row">
+            <div class="col-sm-12">
+              <table class="table" id="table1" style="visibility: hidden;">
+                <thead>
+                  <tr>
+                    <th scope="col">City</th>
+                    <th scope="col">Temperature</th>
+                  </tr>
+                </thead>
+                <tbody id="tbody">
+                </tbody>
+              </table>
+            </div>
           </div>
+
+          <div class="row">
+            <div class="col-sm-12">
+              <canvas id="myChart"></canvas>
+            </div>
+        </div>
     </div>
     
     <script src="script.js"></script>
